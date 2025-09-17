@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calories Burned Prediction</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>Calories Burned Predictor</h1>
+    <h3>Enter Your Workout Data</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }} 
+        <input type="submit" value="Calculate">
+    </form>
+
+    {% if prediction or error %}
+    <div class="prediction-container">
+        {% if prediction %}
+            <h2>Calories Burned: {{ prediction }}</h2>
+        {% elif error %}
+            <h2 class="error">Error: {{ error }}</h2>
+        {% endif %}
+    </div>
+  {% endif %}
+
+</body>
+</html>

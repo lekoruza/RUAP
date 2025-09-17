@@ -205,3 +205,15 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+# Django specific
+staticfiles/
+media/
+
+# SQLite (ako koristiš)
+db.sqlite3
+db.sqlite3-journal
+
+# Local overrides
+local_settings.py
